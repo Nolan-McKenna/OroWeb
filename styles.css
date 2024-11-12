@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+nav {
+    background-color: #ff6f00;
+    color: #fff;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffddc1;
+}
+
+.hero-section {
+    background-color: #ff8c42;
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
+    clip-path: ellipse(80% 100% at 50% 0%);
+}
+
+.hero-section h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-section p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    background-color: #ffffff;
+    color: #ff6f00;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffddc1;
+    color: #ff6f00;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+#about, #release, #documentation {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#about h2, #release h2, #documentation h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+    color: #ff6f00;
+}
+
+#about p, #release p {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.release-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.release-section ul li {
+    background-color: #ffe1b3;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #ff6f00;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #ff8c42;
+}
+
+footer {
+    background-color: #ff6f00;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #ffddc1;
+}
+
+/* Adding styles for search and suggestions */
+.search-container {
+    max-width: 500px;
+    margin: 20px auto;
+    position: relative;
+}
+
+#search {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ff6f00;
+    border-radius: 50px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#search:focus {
+    border-color: #ff8c42;
+}
+
+#suggestions {
+    display: none; /* This will be overridden by JavaScript */
+    background-color: white;
+    border: 1px solid #ff6f00;
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+#suggestions p {
+    padding: 10px;
+    cursor: pointer;
+    margin: 0;
+}
+
+#suggestions p:hover {
+    background-color: #ffddc1;
+}
+
+
+
+#search-results {
+    margin-top: 40px;
+}
+
+#search-results h3 {
+    font-size: 2rem;
+    color: #ff6f00;
+}
+
+#search-results p {
+    font-size: 1.2rem;
+    color: #333;
+}
