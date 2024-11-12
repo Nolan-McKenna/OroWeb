@@ -84,7 +84,7 @@ document.getElementById('search').addEventListener('focus', (e) => {
 });
 
 // Clear suggestions when clicking outside the input or suggestions box
-document.addEventListener('click', (event) => {
+document.addEventListener('click', (e) => {
     e.preventDefault();
     const searchInput = document.getElementById('search');
     const suggestionsBox = document.getElementById('suggestions');
