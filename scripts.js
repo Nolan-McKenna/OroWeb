@@ -28,9 +28,6 @@ function debounce(func, wait) {
 // Function to show autosuggest as user types
 function showSuggestions(query) {
     const suggestionsBox = document.getElementById('suggestions');
-    //const searchResults = document.getElementById('search-results');
-
-    // Clear previous suggestions
     suggestionsBox.innerHTML = '';
     suggestionsBox.style.display = 'none';
 
@@ -43,13 +40,14 @@ function showSuggestions(query) {
         // Display suggestions
         if (suggestions.length > 0) {
             suggestionsBox.style.display = 'block';
+            suggestionsBox.classList.add('animate'); // Add animation class
             suggestions.forEach(suggestion => {
                 const p = document.createElement('p');
                 p.innerHTML = suggestion.title;
                 p.onclick = (e) => {
-                    e.preventDefault();  // Prevent any default behavior on click
+                    e.preventDefault();
                     showResult(suggestion);
-                    suggestionsBox.style.display = 'none'; // Hide suggestions when item clicked
+                    suggestionsBox.style.display = 'none';
                 };
                 suggestionsBox.appendChild(p);
             });
@@ -66,7 +64,21 @@ function showResult(item) {
         <h3>${item.title}</h3>
         <p>${item.content}</p>
     `;
+
+    // Trigger the fade-in animation
+    searchResults.classList.add('animate');
 }
+
+// Detect page load to trigger animations
+window.addEventListener('load', () => {
+    // Trigger hero section fade-in
+    const heroSection = document.querySelector('.hero-section');
+    heroSection.classList.add('animate');
+
+    // Trigger release section slide-in
+    const releaseSection = document.querySelector('.release-section');
+    releaseSection.classList.add('animate');
+});
 
 // Debounced version of showSuggestions to reduce flicker and improve performance
 document.getElementById('search').addEventListener('input', debounce((e) => {

@@ -141,11 +141,13 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 60px;
+    z-index: 0;
 }
 
 footer a {
     color: #fff;
     text-decoration: underline;
+    z-index: 1;
 }
 
 footer a:hover {
@@ -209,3 +211,58 @@ footer a:hover {
     font-size: 1.2rem;
     color: #333;
 }
+
+/* Add animations to navigation links */
+  /* Fade in hero section */
+  .hero-section {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Slide in release section */
+  .release-section {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideIn 0.8s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Fade in search suggestions */
+  #suggestions {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInSuggestions 0.3s ease forwards;
+  }
+  
+  @keyframes fadeInSuggestions {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
