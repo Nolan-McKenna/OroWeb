@@ -75,6 +75,10 @@ window.addEventListener('load', () => {
     const heroSection = document.querySelector('.hero-section');
     heroSection.classList.add('animate');
 
+    // Trigger about section slide-in
+    const aboutSection = document.querySelector('.about-section');
+    aboutSection.classList.add('animate');
+
     // Trigger release section slide-in
     const releaseSection = document.querySelector('.release-section');
     releaseSection.classList.add('animate');
