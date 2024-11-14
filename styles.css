@@ -1,284 +1,549 @@
-* {
+:root {
+    --primary: #ff6f00;
+    --primary-light: #ff8c42;
+    --primary-dark: #e56500;
+    --background: #fafafa;
+    --text: #2d3748;
+    --text-light: #4a5568;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
-}
-
-nav {
-    background-color: #ff6f00;
-    color: #fff;
-    padding: 1.5rem 2rem;
+    color: var(--text);
+    background-color: var(--background);
+  }
+  
+  /* Modern Navigation */
+  nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-nav .logo h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 30px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ffddc1;
-}
-
-.hero-section {
-    background-color: #ff8c42;
-    color: white;
-    padding: 120px 20px;
-    text-align: center;
-    clip-path: ellipse(80% 100% at 50% 0%);
-}
-
-.hero-section h2 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.hero-section p {
-    font-size: 1.4rem;
-    margin-bottom: 40px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cta-button {
-    padding: 15px 30px;
-    background-color: #ffffff;
-    color: #ff6f00;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #ffddc1;
-    color: #ff6f00;
-}
-
-section {
-    padding: 60px 20px;
-}
-
-#about, #release, #documentation {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-#about h2, #release h2, #documentation h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2.8rem;
-    color: #ff6f00;
-}
-
-#about p, #release p {
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-}
-
-.release-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.release-section ul li {
-    background-color: #ffe1b3;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    font-size: 1.1rem;
-}
-
-.download-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #ff6f00;
-    color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 50px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.download-button:hover {
-    background-color: #ff8c42;
-}
-
-footer {
-    background-color: #ff6f00;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 60px;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-footer a:hover {
-    color: #ffddc1;
-}
-
-/* Adding styles for search and suggestions */
-.search-container {
-    max-width: 500px;
-    margin: 20px auto;
-    position: relative;
-}
-
-#search {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.1rem;
-    border: 2px solid #ff6f00;
-    border-radius: 50px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-#search:focus {
-    border-color: #ff8c42;
-}
-
-#suggestions {
-    display: none; /* This will be overridden by JavaScript */
-    background-color: white;
-    border: 1px solid #ff6f00;
-    position: absolute;
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 10;
-}
-
-#suggestions p {
-    padding: 10px;
-    cursor: pointer;
-    margin: 0;
-}
-
-#suggestions p:hover {
-    background-color: #ffddc1;
-}
-
-
-
-#search-results {
-    margin-top: 40px;
-}
-
-#search-results h3 {
-    font-size: 2rem;
-    color: #ff6f00;
-}
-
-#search-results p {
-    font-size: 1.2rem;
-    color: #333;
-}
-
-/* Add animations to navigation links */
-  /* Fade in hero section */
-  .hero-section {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeIn 0.8s ease forwards;
+    box-shadow: var(--shadow-sm);
   }
   
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(50px);
+  nav .logo h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  nav ul li a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Modern Hero Section */
+  .hero-section {
+    margin-top: 4rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    padding: 8rem 2rem;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+  
+  .hero-section h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.2;
+  }
+  
+  .hero-section p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+  }
+  
+  .cta-button {
+    padding: 1rem 2rem;
+    background-color: white;
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Modern Sections */
+  section {
+    padding: 5rem 2rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  #about, #release, #documentation {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    box-shadow: var(--shadow-md);
+    margin: 2rem auto;
+    max-width: 1000px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: -0.5px;
+  }
+  
+  /* Modern Search Container */
+  .search-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    position: relative;
+  }
+  
+  #search {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  #search:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 111, 0, 0.1);
+  }
+  
+  #suggestions {
+    margin-top: 0.5rem;
+    background-color: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+  
+  #suggestions p {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  #suggestions p:hover,
+  #suggestions p.highlighted {
+    background-color: #f7fafc;
+    color: var(--primary);
+  }
+  
+  /* Modern Search Results */
+  #search-results {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: var(--shadow-md);
+  }
+  
+  #search-results h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  
+  #search-results p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  
+  /* Modern Release Section */
+  .release-details {
+    background: linear-gradient(to bottom right, #fff, #f7fafc);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .release-details h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+  
+  .release-details ul {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+  
+  .release-details ul li {
+    background-color: #f7fafc;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    color: var(--text-light);
+    transition: transform 0.2s ease;
+  }
+  
+  .release-details ul li:hover {
+    transform: translateX(5px);
+  }
+  
+  .download-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .download-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Modern Footer */
+  footer {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 5rem;
+  }
+  
+  footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+  
+  footer a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    nav {
+      padding: 1rem;
     }
-    100% {
+    
+    nav ul {
+      gap: 1rem;
+    }
+    
+    .hero-section h2 {
+      font-size: 2.5rem;
+    }
+    
+    .hero-section p {
+      font-size: 1.1rem;
+    }
+    
+    section {
+      padding: 3rem 1rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
       opacity: 1;
       transform: translateY(0);
     }
-  } 
-  
-  /* Slide in release section */
-  .release-section {
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: slideIn 0.8s ease forwards;
   }
   
+  .hero-section, #about, #release, #documentation {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .hero-section {
+    animation-delay: 0.2s;
+  }
+  
+  #about {
+    animation-delay: 0.4s;
+  }
+  
+  #release {
+    animation-delay: 0.6s;
+  }
+  
+  #documentation {
+    animation-delay: 0.8s;
+  }
+
+  /* Version Navigation Styles */
+.version-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    background: rgba(247, 250, 252, 0.5);
+    border-radius: var(--radius-lg);
+  }
+  
+  .version-info {
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .version-info h3 {
+    margin: 0;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .release-date {
+    margin: 0.5rem 0 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+  
+  .nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .nav-arrow:hover:not(:disabled) {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .nav-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f1f5f9;
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+  }
+  
+  .feature-list li {
+    background: linear-gradient(to right, rgba(255, 111, 0, 0.1), transparent);
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    color: var(--text);
+    transition: all 0.2s ease;
+    position: relative;
+    padding-left: 2.5rem;
+  }
+  
+  .feature-list li::before {
+    content: "→";
+    position: relative;
+    left: -.5rem;
+    color: var(--primary);
+  }
+  
+  .feature-list li:hover {
+    transform: translateX(5px);
+    background: linear-gradient(to right, rgba(255, 111, 0, 0.15), transparent);
+  }
+  
+  .view-docs-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--primary);
+    cursor: pointer;
+  }
+  
+  .view-docs-button:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Animation for version transitions */
   @keyframes slideIn {
-    0% {
+    from {
       opacity: 0;
-      transform: translateX(-50px);
+      transform: translateX(20px);
     }
-    100% {
+    to {
       opacity: 1;
       transform: translateX(0);
     }
   }
-
-    /* Slide in about section */
-    .about-section {
-        opacity: 0;
-        transform: translateX(-50px);
-        animation: slideIn 0.8s ease forwards;
-      }
-      
-      @keyframes slideIn {
-        0% {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
   
-  /* Fade in search suggestions */
-  #suggestions {
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeInSuggestions 0.3s ease forwards;
+  .feature-list li {
+    animation: slideIn 0.3s ease-out forwards;
+    animation-delay: calc(var(--item-index) * 0.1s);
+  }
+
+  /* Update search container to accommodate clear button */
+/* .search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 2rem auto;
+  } */
+  
+  /* #search {
+    width: 100%;
+    padding: 1rem 2.5rem 1rem 1.5rem; 
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
   }
   
-  @keyframes fadeInSuggestions {
-    0% {
+  #search:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 111, 0, 0.1);
+  } */
+  
+/* Clear button container */
+.clear-button-container {
+    position: absolute;
+    right: 0.75rem;
+    top: 16px; /* Fixed position instead of percentage */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transform: none; /* Remove transform */
+  }
+  
+  /* Clear button styling */
+  .search-clear-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #94a3b8;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .search-clear-button:hover {
+    color: var(--text);
+    background-color: #f1f5f9;
+  }
+  
+  /* Animation for clear button */
+  @keyframes fadeIn {
+    from {
       opacity: 0;
-      transform: translateY(-10px);
+      transform: scale(0.7);
     }
-    100% {
+    to {
       opacity: 1;
-      transform: translateY(0);
+      transform: scale(1);
     }
+  }
+  
+  .clear-button-container {
+    animation: fadeIn 0.2s ease-out;
   }
